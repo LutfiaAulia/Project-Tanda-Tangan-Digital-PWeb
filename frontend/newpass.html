@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Create New Password</title>
+    <link href="assets/css/style1.css" rel="stylesheet" />
+    <script>
+      function togglePasswordVisibility() {
+        var passwordField = document.getElementById("password");
+        var confirmPasswordField = document.getElementById("confirmPassword");
+        var passwordToggle = document.getElementById("password-toggle");
+        var confirmPasswordToggle = document.getElementById("confirmPassword-toggle");
+        }
+    </script>
+  </head>
+  <body>
+    <form action="login.html">
+      <h1>Create New Password</h1>
+      <hr>
+      <p> Your new password must be different from previous used passwords </p>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <br>
+      <button class="button" type="submit">Save</button>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document Submission</title>
+    <link href="assets/css/stylesubmiss.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Document Submission</h1>
+    </header>
+    <form id="submission-form" enctype="multipart/form-data">
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" accept=".pdf" />
+
+      <label for="university">University:</label>
+      <input type="text" id="university" name="university" />
+
+      <label for="faculty">Faculty:</label>
+      <input type="text" id="faculty" name="faculty" />
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" />
+
+      <label for="letter">Letter Destination:</label>
+      <select
+        id="letter"
+        name="destination"
+        onchange="getSelectedDestination()"
+      >
+        <option value="choose">Choose</option>
+      </select>
+
+      <label for="description">Document Description:</label>
+      <textarea id="description" name="description"></textarea>
+
+      <button type="button" id="send-button" onclick="submitForm()">
+        Send
+      </button>
+    </form>
+
+    <a href="homlog.html" class="back-button"><i class="fas fa-home"></i></a>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+      async function submitForm() {
+        var form = document.getElementById("submission-form");
+        var formData = new FormData(form);
+
+        try {
+          const response = await fetch("http://localhost:3000/token");
+          const token = await response.text();
+
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", `Bearer ${token}`);
+
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: formData,
+            redirect: "follow",
+          };
+
+          const submissionResponse = await fetch(
+            "http://localhost:3000/submiss",
+            requestOptions
+          );
+          const result = await submissionResponse.text();
+
+          console.log(result);
+          if (submissionResponse.ok) {
+            window.location.href = "homlog.html";
+          } else {
+            console.log("Submission failed.");
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+
+      function populateLetterDestination() {
+        fetch("http://localhost:3000/username")
+          .then((response) => response.json())
+          .then((data) => {
+            var letterDestinationSelect = document.getElementById("letter");
+            data.forEach((username) => {
+              var option = document.createElement("option");
+              option.value = username;
+              option.textContent = username;
+              letterDestinationSelect.appendChild(option);
+            });
+          })
+          .catch((error) => console.log("error", error));
+      }
+      window.addEventListener("DOMContentLoaded", populateLetterDestination);
+
+      function getSelectedDestination() {
+        var letterDestination = document.getElementById("letter").value;
+        console.log("Selected Destination:", letterDestination);
+      }
+
+      async function setAuthorizationHeader() {
+        try {
+          const response = await fetch("http://localhost:3000/token");
+          const token = await response.text();
+
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+          myHeaders.append("Authorization", `Bearer ${token}`);
+
+          requestOptions.headers = myHeaders;
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+      window.addEventListener("DOMContentLoaded", setAuthorizationHeader);
+    </script>
+  </body>
+</html>

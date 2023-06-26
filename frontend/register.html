@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Account</title>
+    <link href="assets/css/style1.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form id="registrationForm">
+      <div style="text-align: center">
+        <h2 style="font-size: 26px">Registration Account</h2>
+      </div>
+      <p style="text-align: center">Create your own account</p>
+      <div>
+        <input type="text" name="username" placeholder="Username" autofocus required />
+      </div>
+      <div>
+        <input type="email" name="email" placeholder="E-mail" required />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div>
+        <label for="sign">Upload your sign</label>
+        <input
+          type="file"
+          id="sign-img"
+          name="sign_img"
+          placeholder="Upload your sign"
+        />
+      </div>
+      <div style="text-align: center">
+        <input type="submit" name="Create" value="Create" />
+      </div>
+      <div style="text-align: center">
+        <p>Have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+    <script>
+      var registrationForm = document.getElementById("registrationForm");
+      registrationForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var username = document.getElementsByName("username")[0].value;
+        var email = document.getElementsByName("email")[0].value;
+        var password = document.getElementsByName("password")[0].value;
+        var signImg = document.getElementById("sign-img").value;
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("username", username);
+        urlencoded.append("email", email);
+        urlencoded.append("password", password);
+        urlencoded.append("sign_img", signImg);
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: "follow",
+        };
+
+        fetch("http://localhost:3000/register", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            if (result.error) {
+              if (result.error.includes("Username") || result.error.includes("email")) {
+                alert("Username / Email sudah pernah didaftarkan");
+            
+              }
+            } else {
+              alert("Berhasil membuat akun!");
+              window.location.href = "login.html";
+            }
+
+          })
+          .catch((error) => console.log("error", error));
+      });
+    </script>
+  </body>
+</html>

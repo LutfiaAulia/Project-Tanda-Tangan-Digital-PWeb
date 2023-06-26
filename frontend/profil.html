@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Profil</title>
+        <link href="assets/css/style2.css" rel="stylesheet" />
+        
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            th {
+                padding: 19px;
+                text-align: left;
+                vertical-align: top;
+            }
+            
+            td {
+                padding: 0px;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="date"] {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            #profile-pic {
+            display: block;
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 25%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="profile">
+        <img id="profile-pic" src="pp.jpg" alt="Foto profil">
+        <br>
+        <a href="edit%20profil.html">Edit Profile</a>
+        <br>
+        <table>
+            <tr>
+                <th>Username</th>
+                <td><input type="text" id="username" readonly></td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td><input type="email" id="email"  readonly></td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" id="password"  readonly></td>
+            </tr>
+            <tr>
+                <th>Full name</th>
+                <td><input type="text" id="fullname" readonly></td>
+            </tr>
+            <tr>
+                <th>Birthplace</th>
+                <td><input type="text" id="birth-place" readonly></td>
+            </tr>
+            <tr>
+                <th>NIK</th>
+                <td><input type="text" id="nik" readonly></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="tel" id="phone" readonly></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td><input type="text" id="gender" readonly></td>
+            </tr>
+            <tr>
+                 <th>Date of Birth</th>
+                <td><input type="date" id="date-of-birth" readonly></td>
+            </tr>
+        </table>
+        <br /><br />
+      <a href="homlog.html"><button class="button" type="submit">Exit</button></a>
+        </div>
+
+
+
+    </body>
+    <script src="profil.js"></script>
+
+
+</html>
+
+
+
+
+
+
+
