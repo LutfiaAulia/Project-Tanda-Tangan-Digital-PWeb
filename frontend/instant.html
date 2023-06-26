@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Instant Document</title>
+    <link href="assets/css/styleinstan.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Instant Document</h1>
+    </header>
+    <form action="2instant.html">
+      <label for="jenis-surat">Jenis Surat:</label>
+      <select id="jenis-surat" name="jenis-surat">
+        <option value="Surat Keterangan Aktif Kuliah">Surat Aktif Kuliah</option>
+        <option value="Surat Keterangan Mahasiswa">Surat Keterangan Mahasiswa</option>
+        <option value="Surat Keterangan Lulus">Surat Keterangan Lulus</option>
+        <option value="Surat Pernyataan Sedang Tidak Menerima Beasiswa Lain">Surat Pernyataan Sedang Tidak Menerima Beasiswa Lain</option>
+      </select>
+
+      <h2>Data</h2>
+
+      <label for="name">Nama:</label>
+      <input type="text" id="name" name="name">
+
+      <label for="nim">NIM:</label>
+      <input type="text" id="nim" name="nim">
+
+      <label for="ttl">Tempat, Tanggal Lahir:</label>
+      <input type="text" id="tempat" name="tempat" placeholder="Tempat lahir">
+      <input type="date" id="tanggal" name="tanggal">
+
+      <label for="major">Fakultas:</label>
+      <input type="text" id="faculty" name="faculty">
+      
+      <label for="major">Jurusan:</label>
+      <input type="text" id="major" name="major">
+
+      <label for="address">Alamat:</label>
+      <textarea id="address" name="address"></textarea>
+
+      <button type="submit" onclick="generateDocument()">Next</button>
+
+    </form>
+    
+    <a href="homlog.html" class="back-button"><i class="fas fa-home"></i></a>
+  </body>
+</html>

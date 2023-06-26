@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Form</title>
+    <link href="assets/css/login.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form id="loginForm">
+      <div style="text-align: center">
+        <h2 style="font-size: 26px">Login</h2>
+      </div>
+
+      <label for="username">E-mail:</label>
+      <input type="text" id="username" name="username" placeholder="Email" autofocus required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <br />
+      <div style="text-align: right">
+        <a href="reset.html">Forgot password?</a>
+      </div>
+      <br /><br />
+      <button class="button" type="submit">Login</button>
+      <div style="text-align: center">
+        <p>No Account? <a href="register.html">Create an Account</a></p>
+      </div>
+    </form>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+          var email = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          var urlencoded = new URLSearchParams();
+          urlencoded.append("email", email);
+          urlencoded.append("password", password);
+
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: "follow",
+          };
+
+          fetch("http://localhost:3000/login", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+              console.log(result);
+              if (result.success) {
+                window.location.href = "homlog.html";
+              } else {
+                alert(result.message);
+              }
+            })
+            .catch((error) => console.log("error", error));
+        });
+    </script>
+  </body>
+</html>

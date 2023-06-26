@@ -1,0 +1,71 @@
+
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #4a6696;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: 50px;
+  border: 4px solid #ccc;
+  border-radius: 10px;
+  width: 400px;
+  background-color: rgb(226, 231, 239);}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  margin: 10px 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius:5px;
+  width: 90%;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Gaya dasar untuk tombol */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    cursor: pointer;
+  }
+  .button-container {
+    text-align: center;
+  }
+  .button:hover {
+    background-color: #45a049;
+  }
+  .button:active {
+    background-color: #3e8e41;
+  }

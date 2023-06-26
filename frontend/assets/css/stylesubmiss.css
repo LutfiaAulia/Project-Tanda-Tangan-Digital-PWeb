@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #37517e;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+form {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+textarea {
+  height: 150px;
+}
+
+button[type="button"] {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  margin: auto;
+}
+
+button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+.back-button {
+  position: absolute;
+  top: 35px;
+  left: 40px;
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.back-button:before {
+  margin-right: 5px;
+  margin-top: 20px;
+}
